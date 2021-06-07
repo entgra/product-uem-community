@@ -20,13 +20,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.entgra.iot</groupId>
-    <artifactId>entgra-iot-server-parent</artifactId>
+    <groupId>io.entgra.community</groupId>
+    <artifactId>community-parent</artifactId>
     <packaging>pom</packaging>
-    <version>4.1.1-SNAPSHOT</version>
-    <name>Entgra IoT - Parent</name>
+    <version>5.0.0-SNAPSHOT</version>
+    <name>Entgra Community Product - Parent</name>
     <url>http://entgra.io</url>
-    <description>Entgra IoT Server</description>
+    <description>Entgra Community Product</description>
 
     <parent>
         <groupId>org.wso2</groupId>
@@ -90,6 +90,11 @@
                 <version>${orbit.h2.engine.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.entgra.community</groupId>
+                <artifactId>entgra-iot</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -97,6 +102,7 @@
 
         <wso2am>wso2am-4.0.0</wso2am>
         <entgra-iot>entgra-iot-${project.version}</entgra-iot>
+        <entgra-iot-community>entgra-iot-community-${project.version}</entgra-iot-community>
 
         <!-- Carbon Device Management-->
         <carbon.device.mgt.version>4.1.16-SNAPSHOT</carbon.device.mgt.version>
@@ -105,6 +111,9 @@
 
         <!--Orbit versions-->
         <orbit.h2.engine.version>1.2.140.wso2v3</orbit.h2.engine.version>
+
+        <carbon.device.mgt.plugin.version>5.0.16-SNAPSHOT</carbon.device.mgt.plugin.version>
+
 
     </properties>
 

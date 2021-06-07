@@ -48,7 +48,7 @@
 
     <fileSets>
         <fileSet>
-            <directory>../p2-profile/iot-core-profile/target/${wso2am}</directory>
+            <directory>../../p2-profile/iot-core-profile/target/${wso2am}</directory>
             <outputDirectory>${entgra-iot}</outputDirectory>
             <excludes>
                 <exclude>**/repository/conf/tomcat/context.xml</exclude>
