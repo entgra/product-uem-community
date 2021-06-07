@@ -66,6 +66,7 @@
         <fileSet>
             <directory>src/core/bin</directory>
             <outputDirectory>${entgra-iot}/bin</outputDirectory>
+            <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
             <directory>src/core/resources</directory>
