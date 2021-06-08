@@ -27,7 +27,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>entgra-iot-distribution</artifactId>
+    <artifactId>distribution</artifactId>
     <packaging>pom</packaging>
     <name>Entgra IoT - Distribution Module</name>
     <description>Entgra IoT Distribution Module</description>
