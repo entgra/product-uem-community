@@ -59,7 +59,7 @@
                     <execution>
                         <!--Creating Device Management schema-->
                         <id>create-device-mgt-schema</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
@@ -85,7 +85,7 @@
                     <execution>
                         <!--Creating Certificate Management schema-->
                         <id>create-certificate-mgt-schema</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
@@ -118,7 +118,7 @@
                 <executions>
                     <execution>
                         <id>2-p2-repo-generation</id>
-                        <phase>package</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>p2-repo-gen</goal>
                         </goals>
@@ -208,7 +208,7 @@
                     </execution>
                     <execution>
                         <id>feature-install</id>
-                        <phase>package</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>p2-profile-gen</goal>
                         </goals>
@@ -369,7 +369,7 @@
                 <executions>
                     <execution>
                         <id>2-dist</id>
-                        <phase>install</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
