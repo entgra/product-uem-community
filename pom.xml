@@ -35,8 +35,9 @@
     </parent>
 
     <modules>
-        <module>modules/p2-profile</module>
-        <module>modules/distribution</module>
+        <module>iot-core</module>
+        <module>p2-profile</module>
+        <module>distribution</module>
     </modules>
 
     <dependencyManagement>
@@ -92,7 +93,7 @@
 
             <dependency>
                 <groupId>io.entgra.community</groupId>
-                <artifactId>entgra-iot</artifactId>
+                <artifactId>entgra-iot-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
@@ -101,8 +102,9 @@
     <properties>
 
         <wso2am>wso2am-4.0.0</wso2am>
-        <entgra-iot>entgra-iot-${project.version}</entgra-iot>
-        <entgra-iot-community>entgra-iot-community-${project.version}</entgra-iot-community>
+        <entgra-iot-core>entgra-iot-core-${project.version}</entgra-iot-core>
+        <entgra-iot-community>entgra-iot-${project.version}</entgra-iot-community>
+        <entgra-emm-community>entgra-emm-${project.version}</entgra-emm-community>
 
         <!-- Carbon Device Management-->
         <carbon.device.mgt.version>5.0.0-SNAPSHOT</carbon.device.mgt.version>

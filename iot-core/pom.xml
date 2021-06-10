@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>io.entgra.community</groupId>
+        <artifactId>community-parent</artifactId>
+        <version>5.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>entgra-iot-core</artifactId>
+    <name>Entgra IoT Core distribution</name>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.h2database.wso2</groupId>
+            <artifactId>h2-database-engine</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>create-solution</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="extract-pack">
+                                <unzip src="${wso2am}.zip" dest="target" overwrite="true"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!--Creating Device Management schema-->
+                        <id>create-device-mgt-schema</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="########### Create Device Management H2 Schema ###########" />
+                                <property name="db.dir" value="target/${wso2am}/repository/database" />
+                                <property name="userid" value="wso2carbon" />
+                                <property name="password" value="wso2carbon" />
+                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/WSO2DM_DB;DB_CLOSE_ON_EXIT=FALSE" />
+
+                                <sql driver="org.h2.Driver" url="${dbURL}" userid="${userid}" password="${password}" autocommit="true" onerror="continue">
+                                    <classpath refid="maven.dependency.classpath" />
+                                    <classpath refid="maven.compile.classpath" />
+                                    <classpath refid="maven.runtime.classpath" />
+
+                                    <fileset file="${basedir}/target/${wso2am}/dbscripts/cdm/h2.sql" />
+                                </sql>
+                                <echo message="##################### END ####################" />
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!--Creating Certificate Management schema-->
+                        <id>create-certificate-mgt-schema</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="########### Create Certificate Management H2 Schema ###########" />
+
+                                <property name="db.dir" value="target/${wso2am}/repository/database" />
+                                <property name="userid" value="wso2carbon" />
+                                <property name="password" value="wso2carbon" />
+                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/WSO2DM_DB;DB_CLOSE_ON_EXIT=FALSE" />
+
+                                <sql driver="org.h2.Driver" url="${dbURL}" userid="${userid}" password="${password}" autocommit="true" onerror="continue">
+                                    <classpath refid="maven.dependency.classpath" />
+                                    <classpath refid="maven.compile.classpath" />
+                                    <classpath refid="maven.runtime.classpath" />
+                                    <fileset file="${basedir}/target/${wso2am}/dbscripts/certMgt/h2.sql" />
+                                </sql>
+                                <echo message="##################### END ####################" />
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.wso2.maven</groupId>
+                <artifactId>carbon-p2-plugin</artifactId>
+                <version>${carbon.p2.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>2-p2-repo-generation</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>p2-repo-gen</goal>
+                        </goals>
+                        <configuration>
+                            <metadataRepository>file:${basedir}/target/p2-repo</metadataRepository>
+                            <artifactRepository>file:${basedir}/target/p2-repo</artifactRepository>
+                            <publishArtifacts>true</publishArtifacts>
+                            <publishArtifactRepository>true</publishArtifactRepository>
+
+                            <featureArtifacts>
+                                <!-- Device Management Features -->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.extensions.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.policy.mgt.server.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.certificate.mgt.api.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.certificate.mgt.cert.admin.api.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.certificate.mgt.server.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.apimgt.webapp.publisher.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.identity.jwt.client.extension.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.webapp.authenticator.framework.server.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.apimgt.application.extension.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.email.sender.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    io.entgra.devicemgt:io.entgra.ui.request.interceptor.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.extensions.device.type.deployer.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.extensions.push.notification.provider.mqtt.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.extensions.push.notification.provider.http.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.extensions.push.notification.provider.fcm.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.extensions.push.notification.provider.xmpp.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.server.heart.beat.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of Device Management Features -->
+
+                                <!-- SMS Management Features -->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.transport.mgt.sms.handler.server.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.transport.mgt.sms.handler.api.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of SMS Management Features -->
+
+                                <!-- App Manager Features-->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.application.mgt.api.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.application.mgt.server.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of New App Manager Features-->
+                            </featureArtifacts>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>feature-install</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>p2-profile-gen</goal>
+                        </goals>
+                        <configuration>
+                            <profile>default</profile>
+                            <metadataRepository>file:${basedir}/target/p2-repo</metadataRepository>
+                            <artifactRepository>file:${basedir}/target/p2-repo</artifactRepository>
+                            <destination>${basedir}/target/${wso2am}/repository/components</destination>
+                            <deleteOldProfileFiles>true</deleteOldProfileFiles>
+                            <features>
+                                <!--Device Management Features-->
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.extensions.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--App Manager Features-->
+                                <feature>
+                                    <id>org.wso2.carbon.device.application.mgt.api.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.application.mgt.server.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <!--End of App Manager Features-->
+
+                                <!--SMS Management Features-->
+                                <feature>
+                                    <id>io.entgra.transport.mgt.sms.handler.server.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>io.entgra.transport.mgt.sms.handler.api.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <!--End of SMS Management Features-->
+
+                                <!--Email Sender Feature-->
+                                <feature>
+                                    <id>org.wso2.carbon.email.sender.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Apimgt Extension Features -->
+                                <feature>
+                                    <id>org.wso2.carbon.apimgt.application.extension.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.apimgt.webapp.publisher.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Certificate Mgt Features-->
+                                <feature>
+                                    <id>org.wso2.carbon.certificate.mgt.server.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.certificate.mgt.api.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.certificate.mgt.cert.admin.api.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Device Mgt Extension Features-->
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.extensions.device.type.deployer.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.extensions.push.notification.provider.mqtt.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.extensions.push.notification.provider.http.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.extensions.push.notification.provider.fcm.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.device.mgt.extensions.push.notification.provider.xmpp.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Heartbeat Mgt-->
+                                <feature>
+                                    <id>io.entgra.server.heart.beat.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--jwt client-->
+                                <feature>
+                                    <id>org.wso2.carbon.identity.jwt.client.extension.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--policy mgt-->
+                                <feature>
+                                    <id>org.wso2.carbon.policy.mgt.server.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--UI request interceptor-->
+                                <feature>
+                                    <id>io.entgra.ui.request.interceptor.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Webapp authentication framework-->
+                                <feature>
+                                    <id>org.wso2.carbon.webapp.authenticator.framework.server.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+                            </features>
+                        </configuration>
+                    </execution>
+
+
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <filesToInclude>
+                        ${basedir}/target/${wso2am}/repository/components/default/configuration/org.eclipse.equinox.simpleconfigurator/bundles.info
+                    </filesToInclude>
+                    <replacements>
+                        <replacement>
+                            <token>false</token>
+                            <value>true</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>2-dist</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <encoding>UTF-8</encoding>
+                            <filters>
+                                <filter>${basedir}/src/assembly/filter.properties</filter>
+                            </filters>
+                            <escapeString>\</escapeString>
+                            <descriptors>
+                                <descriptor>${basedir}/src/assembly/bin.xml</descriptor>
+                            </descriptors>
+                            <archiverConfig>
+                                <defaultDirectoryMode>0775</defaultDirectoryMode>
+                                <directoryMode>0775</directoryMode>
+                                <defaultFileMode>0644</defaultFileMode>
+                                <fileMode>0644</fileMode>
+                            </archiverConfig>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
