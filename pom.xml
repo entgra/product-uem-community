@@ -103,8 +103,8 @@
 
         <wso2am>wso2am-4.0.0</wso2am>
         <entgra-iot-core>entgra-iot-core-${project.version}</entgra-iot-core>
-        <entgra-iot-community>entgra-iot-${project.version}</entgra-iot-community>
-        <entgra-emm-community>entgra-emm-${project.version}</entgra-emm-community>
+        <entgra-iot-community>entgra-iot-community-${project.version}</entgra-iot-community>
+        <entgra-emm-community>entgra-emm-community-${project.version}</entgra-emm-community>
 
         <!-- Carbon Device Management-->
         <carbon.device.mgt.version>5.0.0-SNAPSHOT</carbon.device.mgt.version>

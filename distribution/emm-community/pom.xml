@@ -27,7 +27,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>entgra-emm</artifactId>
+    <artifactId>entgra-emm-community</artifactId>
     <packaging>pom</packaging>
     <name>Entgra EMM - Community Distribution</name>
     <description>Entgra EMM Community Distribution</description>
