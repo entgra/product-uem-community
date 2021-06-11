@@ -45,7 +45,34 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>create-solution</id>
+                        <id>check-pack</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="check-pack">
+                                <available file="${wso2am}.zip" property="pack.exists"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>download-pack</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="download-pack" unless="pack.exists">
+                                <get src="${wso2am-download-url}"
+                                     dest="${basedir}"
+                                     verbose="false"
+                                     usetimestamp="true"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>extract-pack</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>run</goal>
