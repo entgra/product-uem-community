@@ -302,3 +302,10 @@ maxHttpHeaderSize="16384"
 [transport.http.properties]
 maxHttpHeaderSize="16384"
 
+[oauth.grant_type.jwt_bearer]
+grant_handler="org.wso2.carbon.device.mgt.oauth.extensions.handlers.grant.ExtendedJWTGrantHandler"
+
+[[oauth.custom_grant_type]]
+name="access_token"
+grant_handler="org.wso2.carbon.device.mgt.oauth.extensions.handlers.grant.AccessTokenGrantHandler"
+grant_validator="org.wso2.carbon.device.mgt.oauth.extensions.validators.AccessTokenGrantValidator"
