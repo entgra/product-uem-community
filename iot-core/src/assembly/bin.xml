@@ -85,4 +85,15 @@
         </file>
     </files>
 
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>${entgra-iot-core}/repository/components/dropins</outputDirectory>
+            <includes>
+                <include>org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.oauth.extensions</include>
+            </includes>
+            <!--<useProjectArtifact>false</useProjectArtifact>-->
+            <!--<useTransitiveDependencies>true</useTransitiveDependencies>-->
+            <!--<unpack>false</unpack>-->
+        </dependencySet>
+    </dependencySets>
 </assembly>

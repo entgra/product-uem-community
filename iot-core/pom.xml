@@ -36,6 +36,10 @@
             <groupId>com.h2database.wso2</groupId>
             <artifactId>h2-database-engine</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.devicemgt</groupId>
+            <artifactId>org.wso2.carbon.device.mgt.oauth.extensions</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

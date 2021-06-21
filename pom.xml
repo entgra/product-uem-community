@@ -83,6 +83,11 @@
                 <artifactId>org.wso2.carbon.identity.jwt.client.extension</artifactId>
                 <version>${carbon.device.mgt.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.devicemgt</groupId>
+                <artifactId>org.wso2.carbon.device.mgt.oauth.extensions</artifactId>
+                <version>${carbon.device.mgt.version}</version>
+            </dependency>
 
             <!--Orbit dependencies-->
             <dependency>
