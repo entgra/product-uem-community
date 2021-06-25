@@ -1,0 +1,26 @@
+variables:
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+
+cache:
+  paths:
+    - target/
+
+build:
+  stage: build
+  script:
+    - rm -rf ~/.m2/repository/org/wso2/carbon/devicemgt
+    - rm -rf ~/.m2/repository/org/wso2/carbon/devicemgt-plugins
+    - rm -rf ~/.m2/repository/org/wso2/carbon/org/wso2/iot
+    - rm -rf ~/.m2/repository/io/entgra
+    - mvn $MAVEN_CLI_OPTS clean install
+  tags:
+    - OracleJDK1.8
+
+deploy:
+  stage: deploy
+  script:
+    - mvn $MAVEN_CLI_OPTS deploy
+  only:
+    - master@entgra/community-product
+  tags:
+    - OracleJDK1.8
