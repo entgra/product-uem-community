@@ -1,0 +1,99 @@
+<!--
+  ~ Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<!DOCTYPE assembly [
+        <!ELEMENT assembly (id|formats|includeBaseDirectory|fileSets|dependencySets|files)*>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT formats (format)*>
+        <!ELEMENT format (#PCDATA)>
+        <!ELEMENT includeBaseDirectory (#PCDATA)>
+        <!ELEMENT fileSets (fileSet)*>
+        <!ELEMENT fileSet (directory|outputDirectory|excludes|includes|fileMode|filtered)*>
+        <!ELEMENT directory (#PCDATA)>
+        <!ELEMENT outputDirectory (#PCDATA)>
+        <!ELEMENT excludes (exclude)*>
+        <!ELEMENT exclude (#PCDATA)>
+        <!ELEMENT includes (include)*>
+        <!ELEMENT include (#PCDATA)>
+        <!ELEMENT fileMode (#PCDATA)>
+        <!ELEMENT filtered (#PCDATA)>
+        <!ELEMENT dependencySets (dependencySet)*>
+        <!ELEMENT dependencySet (outputDirectory|includes)*>
+        <!ELEMENT files (file)*>
+        <!ELEMENT file (source|outputDirectory|fileMode|filtered|destName)*>
+        <!ELEMENT source (#PCDATA)>
+        <!ELEMENT destName (#PCDATA)>
+        ]>
+<assembly>
+    <id>bin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>${basedir}/target/${wso2am}</directory>
+            <outputDirectory>${entgra-iot-core}</outputDirectory>
+            <excludes>
+                <exclude>**/repository/conf/tomcat/context.xml</exclude>
+                <exclude>**/repository/conf/deployment.toml</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>src/core/synapse-configs/default/api</directory>
+            <outputDirectory>${entgra-iot-core}/repository/deployment/server/synapse-configs/default/api</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/core/conf/tomcat</directory>
+            <outputDirectory>${entgra-iot-core}/repository/conf/tomcat</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/core/bin</directory>
+            <outputDirectory>${entgra-iot-core}/bin</outputDirectory>
+            <fileMode>755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/core/resources</directory>
+            <outputDirectory>${entgra-iot-core}/repository/deployment/server/webapps/authenticationendpoint</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/core/resources</directory>
+            <outputDirectory>${entgra-iot-core}/repository/deployment/server/webapps/accountrecoveryendpoint</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <files>
+        <file>
+            <source>src/core/conf/deployment.toml</source>
+            <outputDirectory>${entgra-iot-core}/repository/conf/</outputDirectory>
+        </file>
+    </files>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>${entgra-iot-core}/repository/components/dropins</outputDirectory>
+            <includes>
+                <include>org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.oauth.extensions</include>
+            </includes>
+            <!--<useProjectArtifact>false</useProjectArtifact>-->
+            <!--<useTransitiveDependencies>true</useTransitiveDependencies>-->
+            <!--<unpack>false</unpack>-->
+        </dependencySet>
+    </dependencySets>
+</assembly>
