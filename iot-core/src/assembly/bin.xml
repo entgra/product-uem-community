@@ -69,6 +69,11 @@
             <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
+            <directory>src/core/scripts</directory>
+            <outputDirectory>${entgra-iot-core}/scripts</outputDirectory>
+            <fileMode>755</fileMode>
+        </fileSet>
+        <fileSet>
             <directory>src/core/resources</directory>
             <outputDirectory>${entgra-iot-core}/repository/deployment/server/webapps/authenticationendpoint</outputDirectory>
         </fileSet>
