@@ -88,6 +88,27 @@
                         </configuration>
                     </execution>
                     <execution>
+                        <id>update-dbscripts</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="replace dbscripts to avoid tenant creation issue ">
+                                <replace file="target/${wso2am}/dbscripts/db2.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/h2.sql" token="REG_VALUE        VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/informix.sql" token="REG_VALUE        VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/mssql.sql" token="REG_VALUE        VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/mysql.sql" token="REG_VALUE        VARCHAR(1000),," value="REG_VALUE        VARCHAR(10000),,"/>
+                                <replace file="target/${wso2am}/dbscripts/mysql_cluster.sql" token="REG_VALUE        VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE        VARCHAR2(1000)," value="REG_VALUE        VARCHAR2(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE        VARCHAR2(1000)," value="REG_VALUE        VARCHAR2(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/oracle_rac.sql" token="REG_VALUE        VARCHAR2(1000)," value="REG_VALUE        VARCHAR2(10000),"/>
+                                <replace file="target/${wso2am}/dbscripts/postgresql.sql" token="REG_VALUE        VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000),"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <!--Creating Device Management schema-->
                         <id>create-device-mgt-schema</id>
                         <phase>package</phase>
@@ -228,10 +249,10 @@
 
                                 <!-- App Manager Features-->
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.application.mgt.api.feature:${carbon.device.mgt.version}
+                                    org.wso2.carbon.devicemgt:io.entgra.application.mgt.api.feature:${carbon.device.mgt.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt:org.wso2.carbon.device.application.mgt.server.feature:${carbon.device.mgt.version}
+                                    org.wso2.carbon.devicemgt:io.entgra.application.mgt.server.feature:${carbon.device.mgt.version}
                                 </featureArtifactDef>
                                 <!-- End of New App Manager Features-->
                             </featureArtifacts>
@@ -262,11 +283,11 @@
 
                                 <!--App Manager Features-->
                                 <feature>
-                                    <id>org.wso2.carbon.device.application.mgt.api.feature.group</id>
+                                    <id>io.entgra.application.mgt.api.feature.group</id>
                                     <version>${carbon.device.mgt.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.device.application.mgt.server.feature.group</id>
+                                    <id>io.entgra.application.mgt.server.feature.group</id>
                                     <version>${carbon.device.mgt.version}</version>
                                 </feature>
                                 <!--End of App Manager Features-->
