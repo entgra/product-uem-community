@@ -91,8 +91,8 @@
 
             <!--Orbit dependencies-->
             <dependency>
-                <groupId>com.h2database.wso2</groupId>
-                <artifactId>h2-database-engine</artifactId>
+                <groupId>org.wso2.orbit.com.h2database</groupId>
+                <artifactId>h2</artifactId>
                 <version>${orbit.h2.engine.version}</version>
             </dependency>
 
@@ -119,7 +119,7 @@
         <carbon.p2.plugin.version>5.1.2</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
-        <orbit.h2.engine.version>1.2.140.wso2v3</orbit.h2.engine.version>
+        <orbit.h2.engine.version>1.4.199.wso2v1</orbit.h2.engine.version>
 
         <carbon.device.mgt.plugin.version>6.0.0-SNAPSHOT</carbon.device.mgt.plugin.version>
 
