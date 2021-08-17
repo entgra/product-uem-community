@@ -278,17 +278,7 @@ scopes="internal_application_mgt_create"
 
 # ----------------Required for IOT/EMM-----------------------
 [[resource.access_control]]
-context="(.*)/api/device-mgt/v1.0/(.*)"
-secure="true"
-http_method="all"
-
-[[resource.access_control]]
 context="(.*)/api-application-registration/(.*)"
-secure="true"
-http_method="all"
-
-[[resource.access_control]]
-context="(.*)/api/application-mgt-publisher/v1.0/(.*)"
 secure="true"
 http_method="all"
 
@@ -309,3 +299,6 @@ grant_handler="org.wso2.carbon.device.mgt.oauth.extensions.handlers.grant.Extend
 name="access_token"
 grant_handler="org.wso2.carbon.device.mgt.oauth.extensions.handlers.grant.AccessTokenGrantHandler"
 grant_validator="org.wso2.carbon.device.mgt.oauth.extensions.validators.AccessTokenGrantValidator"
+
+[oauth.token_renewal]
+renew_refresh_token=false
