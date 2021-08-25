@@ -254,34 +254,6 @@ username = "${admin.username}"
 password = "${admin.password}"
 'header.X-WSO2-KEY-MANAGER' = "default"
 
-#---- Adding below configurations which are coming from APIM, to avoid replacing by IOT/EMM configurations ----
-[[resource.access_control]]
-context="(.*)/keymanager-operations/user-info/claims(.*)"
-secure="true"
-http_method="GET"
-permissions="/permission/admin/manage/identity/usermgt/list"
-scopes="internal_user_mgt_list"
-
-[[resource.access_control]]
-context="(.*)/keymanager-operations/user-info/claims/generate"
-secure="true"
-http_method="POST"
-permissions="/permission/admin/manage/identity/usermgt/list"
-scopes="internal_user_mgt_list"
-
-[[resource.access_control]]
-context="(.*)/keymanager-operations/dcr/register"
-secure="true"
-http_method="POST"
-permissions="/permission/admin/manage/identity/applicationmgt/create"
-scopes="internal_application_mgt_create"
-
-# ----------------Required for IOT/EMM-----------------------
-[[resource.access_control]]
-context="(.*)/api-application-registration/(.*)"
-secure="true"
-http_method="all"
-
 [apim.sync_runtime_artifacts.gateway.skip_list]
 apis = ["_TokenAPI_.xml", "_API_Application_Registration_.xml", "health-check.xml", "admin--Android-Mutual-SSL-Configuration-Management.xml", "admin--Android-Mutual-SSL-Device-Management.xml", "admin--Android-Mutual-SSL-Event-Receiver.xml", "admin--IOS-Enrollment.xml", "admin--IOS-Enrollment-Authenticate-Agent.xml", "admin--IOS-Enrollment-Profile.xml", "admin--IOS-Enrollment-Profile-DEP.xml", "admin--IOS-Enrollment-Scep.xml", "admin--Windows_8.1_Device_Management_Service.xml", "admin--Windows_8.1_Device_Management_Service_v1.0.0.xml", "admin--Windows_8.1_Enrollment_Service.xml", "admin--Windows_8.1_Enrollment_Service_v1.0.0.xml", "admin--Windows_10_Device_management.xml", "admin--Windows_10_Device_management_v1.0.0.xml", "admin--Windows_10_Enrollment_Service.xml", "admin--Windows_10_Enrollment_Service_v1.0.0.xml", "admin--Windows_Discovery_Service.xml", "admin--Windows_Discovery_Service_v1.0.0.xml", "admin--Windows_Enrollment_policy_Service.xml", "admin--Windows_Enrollment_policy_Service_v1.0.0.xml"]
 sequences = ["_api_registration_fault_.xml"]
