@@ -361,6 +361,14 @@ do
     -Diot.gateway.http.port="8280" \
     -Diot.gateway.carbon.https.port="9443" \
     -Diot.gateway.carbon.http.port="9763" \
+    -Diot.keymanager.host="localhost" \
+    -Diot.keymanager.https.port="9443" \
+    -Diot.apim.host="localhost" \
+    -Diot.apim.https.port="9443" \
+    -Denable-api-scopes-sharing="true" \
+    -Dagent-bundle="org.wso2.carbon.emm.mdmagent" \
+    -Diot.reporting.event.host="" \
+    -Diot.reporting.webapp.host="" \
     org.wso2.carbon.bootstrap.Bootstrap $*
     status=$?
 done
