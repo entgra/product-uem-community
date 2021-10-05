@@ -127,9 +127,9 @@
     </properties>
 
     <scm>
-        <url>https://gitlab.com/entgra/product-iots.git</url>
-        <developerConnection>scm:git:https://gitlab.com/entgra/product-iots.git</developerConnection>
-        <connection>scm:git:https://gitlab.com/entgra/product-iots.git</connection>
+        <url>https://gitlab.com/entgra/community-product.git</url>
+        <developerConnection>scm:git:https://gitlab.com/entgra/community-product.git</developerConnection>
+        <connection>scm:git:https://gitlab.com/entgra/community-product.git</connection>
         <tag>HEAD</tag>
     </scm>
 
