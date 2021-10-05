@@ -99,7 +99,7 @@
             <dependency>
                 <groupId>io.entgra.community</groupId>
                 <artifactId>entgra-iot-core</artifactId>
-                <version>${project.version}</version>
+                <version>5.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -109,19 +109,19 @@
         <wso2am>wso2am-4.0.0</wso2am>
         <wso2am-download-url>https://github.com/wso2/product-apim/releases/download/v4.0.0/${wso2am}.zip</wso2am-download-url>
 
-        <entgra-iot-core>entgra-iot-core-${project.version}</entgra-iot-core>
-        <entgra-iot-community>entgra-iot-community-${project.version}</entgra-iot-community>
-        <entgra-emm-community>entgra-emm-community-${project.version}</entgra-emm-community>
+        <entgra-iot-core>entgra-iot-core-5.0.0-SNAPSHOT</entgra-iot-core>
+        <entgra-iot-community>entgra-iot-community-5.0.0-SNAPSHOT</entgra-iot-community>
+        <entgra-emm-community>entgra-emm-community-5.0.0-SNAPSHOT</entgra-emm-community>
 
         <!-- Carbon Device Management-->
-        <carbon.device.mgt.version>5.0.0-SNAPSHOT</carbon.device.mgt.version>
+        <carbon.device.mgt.version>5.0.0</carbon.device.mgt.version>
 
         <carbon.p2.plugin.version>5.1.2</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
         <orbit.h2.engine.version>1.4.199.wso2v1</orbit.h2.engine.version>
 
-        <carbon.device.mgt.plugin.version>6.0.0-SNAPSHOT</carbon.device.mgt.plugin.version>
+        <carbon.device.mgt.plugin.version>6.0.0</carbon.device.mgt.plugin.version>
 
 
     </properties>
