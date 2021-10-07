@@ -22,7 +22,7 @@
     <parent>
         <groupId>io.entgra.community</groupId>
         <artifactId>community-parent</artifactId>
-        <version>5.0.0</version>
+        <version>5.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -93,15 +93,15 @@
                         <configuration>
                             <target name="replace dbscripts to avoid tenant creation issue ">
                                 <replace file="target/${wso2am}/dbscripts/db2.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/h2.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/informix.sql" token="REG_VALUE LVARCHAR(1000)," value="REG_VALUE        LVARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/mssql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/mysql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/mysql_cluster.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE        VARCHAR2(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE        VARCHAR2(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/oracle_rac.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE        VARCHAR2(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/postgresql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE        VARCHAR(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/h2.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/informix.sql" token="REG_VALUE LVARCHAR(1000)," value="REG_VALUE LVARCHAR(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/mssql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/mysql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/mysql_cluster.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE VARCHAR2(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE VARCHAR2(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/oracle_rac.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE VARCHAR2(10000)," />
+                                <replace file="target/${wso2am}/dbscripts/postgresql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
                             </target>
                         </configuration>
                     </execution>
