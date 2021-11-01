@@ -35,6 +35,9 @@ password =  "wso2carbon"
 alias =  "wso2carbon"
 key_password =  "wso2carbon"
 
+[identity_mgt.endpoint]
+enable_self_signup_endpoint = false
+
 #[keystore.primary]
 #file_name =  "wso2carbon.jks"
 #type =  "JKS"
