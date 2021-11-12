@@ -33,5 +33,6 @@ target
 .DS_Store
 *.pyc
 .sonar
+.factorypath
 
 iot-core/wso2am-*.zip
