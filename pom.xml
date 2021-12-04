@@ -23,7 +23,7 @@
     <groupId>io.entgra.community</groupId>
     <artifactId>community-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.0.0</version>
+    <version>5.0.1-SNAPSHOT</version>
     <name>Entgra Community Product - Parent</name>
     <url>http://entgra.io</url>
     <description>Entgra Community Product</description>
