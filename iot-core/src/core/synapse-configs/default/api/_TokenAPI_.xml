@@ -1,8 +1,8 @@
 <api xmlns="http://ws.apache.org/ns/synapse" name="_WSO2AMTokenAPI_" context="/token">
     <resource methods="POST" url-mapping="/*" faultSequence="_token_fault_">
         <inSequence>
-            <property name="uri.var.portnum" expression="get-property('system','iot.core.https.port')"/>
-	        <property name="uri.var.hostname" expression="get-property('system','iot.core.host')"/>
+            <property name="uri.var.portnum" expression="get-property('system','iot.keymanager.https.port')"/>
+	        <property name="uri.var.hostname" expression="get-property('system','iot.keymanager.host')"/>
             <filter source="$body//scope" regex="PRODUCTION">
                 <then>
                     <payloadFactory media-type="xml">
