@@ -23,7 +23,7 @@
         <groupId>io.entgra.community</groupId>
         <artifactId>community-parent</artifactId>
         <version>5.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>${basedir}/pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

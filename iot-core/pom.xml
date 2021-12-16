@@ -23,7 +23,7 @@
         <groupId>io.entgra.community</groupId>
         <artifactId>community-parent</artifactId>
         <version>5.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>${basedir}/pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -39,6 +39,12 @@
         <dependency>
             <groupId>org.wso2.carbon.devicemgt</groupId>
             <artifactId>org.wso2.carbon.device.mgt.oauth.extensions</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.am</groupId>
+            <artifactId>am-parent</artifactId>
+            <version>${wso2am-nexus-artifact-version}</version>
+            <type>zip</type>
         </dependency>
     </dependencies>
 
@@ -56,19 +62,7 @@
                         </goals>
                         <configuration>
                             <target name="check-pack">
-                                <available file="${wso2am}.zip" property="pack.exists" />
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>download-pack</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target name="download-pack" unless="pack.exists">
-                                <get src="${wso2am-download-url}" dest="${basedir}" verbose="false" usetimestamp="true" />
+                                <available file="${user.home}/.m2/repository/org/wso2/am/am-parent/4.0.0/am-parent-${wso2am-nexus-artifact-version}.zip" property="pack.exists" />
                             </target>
                         </configuration>
                     </execution>
@@ -80,7 +74,7 @@
                         </goals>
                         <configuration>
                             <target name="extract-pack">
-                                <unzip src="${wso2am}.zip" dest="target" overwrite="true" />
+                                <unzip src="${user.home}/.m2/repository/org/wso2/am/am-parent/4.0.0/am-parent-${wso2am-nexus-artifact-version}.zip" dest="target" overwrite="true" />
                             </target>
                         </configuration>
                     </execution>
