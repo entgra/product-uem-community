@@ -51,32 +51,38 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.2.0</version>
                 <executions>
-                    <execution>
-                        <id>check-pack</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target name="check-pack">
-                                <available file="${user.home}/.m2/repository/org/wso2/am/am-parent/4.0.0/am-parent-${wso2am-nexus-artifact-version}.zip" property="pack.exists" />
-                            </target>
-                        </configuration>
-                    </execution>
                     <execution>
                         <id>extract-pack</id>
                         <phase>process-resources</phase>
                         <goals>
-                            <goal>run</goal>
+                            <goal>unpack</goal>
                         </goals>
                         <configuration>
-                            <target name="extract-pack">
-                                <unzip src="${user.home}/.m2/repository/org/wso2/am/am-parent/4.0.0/am-parent-${wso2am-nexus-artifact-version}.zip" dest="target" overwrite="true" />
-                            </target>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.wso2.am</groupId>
+                                    <artifactId>am-parent</artifactId>
+                                    <version>${wso2am-nexus-artifact-version}</version>
+                                    <type>zip</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.basedir}/target</outputDirectory>
+                                    <destFileName>wso2am-${wso2am-nexus-artifact-version}</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.basedir}/target</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
                     <execution>
                         <id>update-dbscripts</id>
                         <phase>process-resources</phase>
@@ -178,7 +184,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.wso2.maven</groupId>
                 <artifactId>carbon-p2-plugin</artifactId>
