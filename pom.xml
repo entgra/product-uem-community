@@ -97,7 +97,7 @@
             </dependency>
 
             <dependency>
-                <groupId>io.entgra.community</groupId>
+                <groupId>io.entgra.product</groupId>
                 <artifactId>entgra-iot-core</artifactId>
                 <version>${project.version}</version>
             </dependency>

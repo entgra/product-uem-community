@@ -48,7 +48,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>io.entgra.community</groupId>
+                                    <groupId>io.entgra.product</groupId>
                                     <artifactId>entgra-iot-core</artifactId>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>
