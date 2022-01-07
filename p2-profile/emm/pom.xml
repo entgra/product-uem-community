@@ -20,7 +20,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>io.entgra.product</groupId>
+        <groupId>io.entgra.product.community</groupId>
         <artifactId>p2-profile</artifactId>
         <version>5.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -48,7 +48,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>io.entgra.product</groupId>
+                                    <groupId>io.entgra.product.community</groupId>
                                     <artifactId>entgra-iot-core</artifactId>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>
