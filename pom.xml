@@ -23,7 +23,7 @@
     <groupId>io.entgra.product.community</groupId>
     <artifactId>product-parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.0.0</version>
+    <version>5.0.1-SNAPSHOT</version>
     <name>Entgra Community Product - Parent</name>
     <url>http://entgra.io</url>
     <description>Entgra Community Product</description>
@@ -130,7 +130,7 @@
         <url>https://gitlab.com/entgra/community-product.git</url>
         <developerConnection>scm:git:https://gitlab.com/entgra/community-product.git</developerConnection>
         <connection>scm:git:https://gitlab.com/entgra/community-product.git</connection>
-        <tag>v5.0.0-RC7</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
