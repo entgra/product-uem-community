@@ -20,12 +20,12 @@
 
 <%@ page import="org.apache.commons.lang.StringUtils"%>
 
-<% if ("IOT Server".equals(request.getAttribute("headerTitle"))) { %>
+<% if ("UEM Server".equals(request.getAttribute("headerTitle"))) { %>
 <div class="product-title">
     <div class="theme-icon inline auto transparent product-logo">
         <img src=extensions/customAssets/logo.svg alt="Logo" />
       </div>
-      <h1 class="product-title-text">IOT Server</h1>
+      <h1 class="product-title-text">UEM Server</h1>
 </div>
 <% } else {
 

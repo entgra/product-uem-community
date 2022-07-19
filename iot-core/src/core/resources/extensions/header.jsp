@@ -47,9 +47,9 @@
       }
   }
 
-  String headerTitle = "IOT Server";
-  String pageTitle = "Entgra IOT Server";
-  String footerText = "Entgra IOT Server";
+  String headerTitle = "UEM Server";
+  String pageTitle = "Entgra UEM Server"; //
+  String footerText = "Entgra UEM Server";
   String faviconSrc = "libs/theme/assets/images/favicon.ico";
   String logoSrc = null;
   String logoHeight = "50";
@@ -79,11 +79,11 @@
               Object obj = parser.parse(fr);
               JSONObject jsonObject = (JSONObject) obj;
 
-              pageTitle = (String)jsonObject.get("title") != null ? (String)jsonObject.get("title") : "Entgra IOT Server";
+              pageTitle = (String)jsonObject.get("title") != null ? (String)jsonObject.get("title") : "Entgra UEM Server";
 
               JSONObject headerThemeObj = (JSONObject)jsonObject.get("header");
               if (headerThemeObj != null) {
-                  headerTitle = (String)(headerThemeObj.get("title")) != null ? (String)(headerThemeObj.get("title")) : "IOT Server";
+                  headerTitle = (String)(headerThemeObj.get("title")) != null ? (String)(headerThemeObj.get("title")) : "UEM Server";
               }
 
               JSONObject footerThemeObj = (JSONObject)jsonObject.get("footer");
