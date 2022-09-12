@@ -347,6 +347,7 @@ do
     -Dfile.encoding=UTF8 \
     -Djava.net.preferIPv4Stack=true \
     -Dcom.ibm.cacheLocalHost=true \
+    -Dorg.wso2.ignoreHostnameVerification=true \
     -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
     -Dhttpclient.hostnameVerifier=AllowAll \
     -DworkerNode=false \
@@ -361,8 +362,12 @@ do
     -Diot.gateway.http.port="8280" \
     -Diot.gateway.carbon.https.port="9443" \
     -Diot.gateway.carbon.http.port="9763" \
+    -Diot.gateway.websocket.ws.port="9099" \
+    -Diot.gateway.websocket.wss.port="8099" \
     -Diot.keymanager.host="localhost" \
     -Diot.keymanager.https.port="9443" \
+    -Diot.remotesession.server.https.port="9443" \
+    -Diot.remotesession.server.host="localhost" \
     -Diot.apim.host="localhost" \
     -Diot.apim.https.port="9443" \
     -Denable-api-scopes-sharing="true" \
