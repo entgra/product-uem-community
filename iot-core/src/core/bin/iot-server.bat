@@ -216,8 +216,8 @@ set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dcomponents.repo="%CARBON_HOME%\repository\co
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dcom.atomikos.icatch.hide_init_file_path="true" -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true -Dcom.sun.jndi.ldap.connect.pool.authentication=simple -Dcom.sun.jndi.ldap.connect.pool.timeout=3000
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dorg.terracotta.quartz.skipUpdateCheck=true -Dcarbon.classpath=%CARBON_CLASSPATH% -Dfile.encoding=UTF8 -DworkerNode=false -Dcarbon.new.config.dir.path="%CARBON_HOME%\repository\resources\conf"
-set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Djava.endorsed.dirs=%JAVA_ENDORSED% -Dorg.opensaml.httpclient.https.disableHostnameVerification=true -Dhttpclient.hostnameVerifier="DefaultAndLocalhost"
-set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Diot.core.host="localhost" -Diot.core.https.port="9443" -Diot.core.http.port="9763" -Diot.gateway.host="localhost" -Diot.gateway.https.port="8243" -Diot.gateway.http.port="8280" -Diot.gateway.carbon.https.port="9443" -Diot.gateway.carbon.http.port="9763"
+set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Djava.endorsed.dirs=%JAVA_ENDORSED% -Dorg.wso2.ignoreHostnameVerification=true -Dorg.opensaml.httpclient.https.disableHostnameVerification=true -Dhttpclient.hostnameVerifier="DefaultAndLocalhost"
+set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Diot.core.host="localhost" -Diot.core.https.port="9443" -Diot.core.http.port="9763" -Diot.gateway.host="localhost" -Diot.gateway.https.port="8243" -Diot.gateway.http.port="8280" -Diot.gateway.carbon.https.port="9443" -Diot.gateway.carbon.http.port="9763" -Diot.gateway.websocket.ws.port="9099" -Diot.gateway.websocket.wss.port="8099" -Diot.remotesession.server.host="localhost" -Diot.remotesession.server.https.port="9443"
 
 :runJava
 echo JAVA_HOME environment variable is set to %JAVA_HOME%
