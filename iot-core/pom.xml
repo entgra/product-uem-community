@@ -182,6 +182,30 @@
                             </target>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>create-heartbeat-schema</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <echo message="########### Create heart beat H2 Schema ###########" />
+                                <property name="db.dir" value="target/${wso2am}/repository/database" />
+                                <property name="userid" value="wso2carbon" />
+                                <property name="password" value="wso2carbon" />
+                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/HEART_BEAT_DB;DB_CLOSE_ON_EXIT=FALSE" />
+
+                                <sql driver="org.h2.Driver" url="${dbURL}" userid="${userid}" password="${password}" autocommit="true" onerror="continue">
+                                    <classpath refid="maven.dependency.classpath" />
+                                    <classpath refid="maven.compile.classpath" />
+                                    <classpath refid="maven.runtime.classpath" />
+                                    <fileset file="${basedir}/target/${entgra-iot-pro}/dbscripts/heart-beat/h2.sql" />
+                                </sql>
+                                <echo message="##################### END ####################" />
+                            </tasks>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
