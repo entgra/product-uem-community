@@ -200,7 +200,7 @@
                                     <classpath refid="maven.dependency.classpath" />
                                     <classpath refid="maven.compile.classpath" />
                                     <classpath refid="maven.runtime.classpath" />
-                                    <fileset file="${basedir}/target/${entgra-iot-pro}/dbscripts/heart-beat/h2.sql" />
+                                    <fileset file="${basedir}/target/${wso2am}/dbscripts/heart-beat/h2.sql" />
                                 </sql>
                                 <echo message="##################### END ####################" />
                             </tasks>
