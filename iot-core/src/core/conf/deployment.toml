@@ -104,7 +104,7 @@ enable = false
 config_endpoint = "https://localhost:8080/auth/v1"
 auth_token = ""
 
-#[apim.key_manager]
+[apim.key_manager]
 #service_url = "https://localhost:${mgt.transport.https.port}/services/"
 #username = "$ref{super_admin.username}"
 #password = "$ref{super_admin.password}"
@@ -112,7 +112,7 @@ auth_token = ""
 #pool.max_idle = 100
 #key_validation_handler_type = "default"
 #key_validation_handler_type = "custom"
-#key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"
+key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.extension.KeyValidationHandler"
 
 #[apim.idp]
 #server_url = "https://localhost:${mgt.transport.https.port}"
@@ -258,7 +258,7 @@ password = "${admin.password}"
 'header.X-WSO2-KEY-MANAGER' = "default"
 
 [apim.sync_runtime_artifacts.gateway.skip_list]
-apis = ["_TokenAPI_.xml", "_API_Application_Registration_.xml", "health-check.xml", "admin--Android-Mutual-SSL-Configuration-Management.xml", "admin--Android-Mutual-SSL-Device-Management.xml", "admin--Android-Mutual-SSL-Event-Receiver.xml", "admin--IOS-Enrollment.xml", "admin--IOS-Enrollment-Authenticate-Agent.xml", "admin--IOS-Enrollment-Profile.xml", "admin--IOS-Enrollment-Profile-DEP.xml", "admin--IOS-Enrollment-Scep.xml", "admin--Windows_8.1_Device_Management_Service.xml", "admin--Windows_8.1_Device_Management_Service_v1.0.0.xml", "admin--Windows_8.1_Enrollment_Service.xml", "admin--Windows_8.1_Enrollment_Service_v1.0.0.xml", "admin--Windows_10_Device_management.xml", "admin--Windows_10_Device_management_v1.0.0.xml", "admin--Windows_10_Enrollment_Service.xml", "admin--Windows_10_Enrollment_Service_v1.0.0.xml", "admin--Windows_Discovery_Service.xml", "admin--Windows_Discovery_Service_v1.0.0.xml", "admin--Windows_Enrollment_policy_Service.xml", "admin--Windows_Enrollment_policy_Service_v1.0.0.xml"]
+apis = ["_TokenAPI_.xml", "_API_Key_Management_.xml", "health-check.xml", "admin--Android-Mutual-SSL-Configuration-Management.xml", "admin--Android-Mutual-SSL-Device-Management.xml", "admin--Android-Mutual-SSL-Event-Receiver.xml", "admin--IOS-Enrollment.xml", "admin--IOS-Enrollment-Authenticate-Agent.xml", "admin--IOS-Enrollment-Profile.xml", "admin--IOS-Enrollment-Profile-DEP.xml", "admin--IOS-Enrollment-Scep.xml", "admin--Windows_8.1_Device_Management_Service.xml", "admin--Windows_8.1_Device_Management_Service_v1.0.0.xml", "admin--Windows_8.1_Enrollment_Service.xml", "admin--Windows_8.1_Enrollment_Service_v1.0.0.xml", "admin--Windows_10_Device_management.xml", "admin--Windows_10_Device_management_v1.0.0.xml", "admin--Windows_10_Enrollment_Service.xml", "admin--Windows_10_Enrollment_Service_v1.0.0.xml", "admin--Windows_Discovery_Service.xml", "admin--Windows_Discovery_Service_v1.0.0.xml", "admin--Windows_Enrollment_policy_Service.xml", "admin--Windows_Enrollment_policy_Service_v1.0.0.xml"]
 sequences = ["_api_registration_fault_.xml"]
 
 [transport.https.properties]
