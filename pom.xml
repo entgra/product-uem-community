@@ -114,14 +114,14 @@
         <entgra-emm-community>entgra-emm-community-${project.version}</entgra-emm-community>
 
         <!-- Carbon Device Management-->
-        <carbon.device.mgt.version>5.0.12</carbon.device.mgt.version>
+        <carbon.device.mgt.version>5.0.13-SNAPSHOT</carbon.device.mgt.version>
 
         <carbon.p2.plugin.version>5.1.2</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
         <orbit.h2.engine.version>1.4.199.wso2v1</orbit.h2.engine.version>
 
-        <carbon.device.mgt.plugin.version>6.0.6</carbon.device.mgt.plugin.version>
+        <carbon.device.mgt.plugin.version>6.0.7-SNAPSHOT</carbon.device.mgt.plugin.version>
 
 
     </properties>
@@ -249,6 +249,16 @@
 
     <pluginRepositories>
         <pluginRepository>
+            <id>internal.nexus</id>
+            <name>Entgra Internal Repository</name>
+            <url>https://nexus-local.entgra.io/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
             <id>wso2.releases</id>
             <name>WSO2 internal Repository</name>
             <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
@@ -289,6 +299,16 @@
              by default) and nothing else. We had troubles with other repositories in
              the past. Therefore configuring additional repositories here should be
              considered very carefully. -->
+        <repository>
+            <id>internal.nexus</id>
+            <name>Entgra Internal Repository</name>
+            <url>https://nexus-local.entgra.io/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
         <repository>
             <id>wso2-nexus</id>
             <name>WSO2 internal Repository</name>
