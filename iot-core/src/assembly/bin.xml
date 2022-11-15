@@ -95,6 +95,7 @@
             <outputDirectory>${entgra-iot-core}/repository/components/dropins</outputDirectory>
             <includes>
                 <include>org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.oauth.extensions</include>
+                <include>org.wso2.carbon.devicemgt:org.wso2.carbon.apimgt.keymgt.extension</include>
             </includes>
             <!--<useProjectArtifact>false</useProjectArtifact>-->
             <!--<useTransitiveDependencies>true</useTransitiveDependencies>-->
