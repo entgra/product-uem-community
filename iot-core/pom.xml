@@ -300,6 +300,17 @@
                                     org.wso2.carbon.devicemgt:io.entgra.application.mgt.server.feature:${carbon.device.mgt.version}
                                 </featureArtifactDef>
                                 <!-- End of New App Manager Features-->
+
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.device.mgt.extensions.defaultrole.manager.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.device.mgt.extensions.logger.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.device.mgt.extensions.stateengine.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+
                             </featureArtifacts>
                         </configuration>
                     </execution>
@@ -427,6 +438,21 @@
                                 <!--Webapp authentication framework-->
                                 <feature>
                                     <id>org.wso2.carbon.webapp.authenticator.framework.server.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <feature>
+                                    <id>io.entgra.device.mgt.extensions.defaultrole.manager.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <feature>
+                                    <id>io.entgra.device.mgt.extensions.logger.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <feature>
+                                    <id>io.entgra.device.mgt.extensions.stateengine.feature.group</id>
                                     <version>${carbon.device.mgt.version}</version>
                                 </feature>
                             </features>
