@@ -114,14 +114,14 @@
         <entgra-emm-community>entgra-emm-community-${project.version}</entgra-emm-community>
 
         <!-- Carbon Device Management-->
-        <carbon.device.mgt.version>5.0.14-SNAPSHOT</carbon.device.mgt.version>
+        <carbon.device.mgt.version>5.0.14</carbon.device.mgt.version>
 
         <carbon.p2.plugin.version>5.1.2</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
         <orbit.h2.engine.version>1.4.199.wso2v1</orbit.h2.engine.version>
 
-        <carbon.device.mgt.plugin.version>6.0.7-SNAPSHOT</carbon.device.mgt.plugin.version>
+        <carbon.device.mgt.plugin.version>6.0.7</carbon.device.mgt.plugin.version>
 
 
     </properties>
