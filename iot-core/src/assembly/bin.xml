@@ -88,6 +88,10 @@
             <source>src/core/conf/deployment.toml</source>
             <outputDirectory>${entgra-iot-core}/repository/conf/</outputDirectory>
         </file>
+        <file>
+            <source>src/core/keystores/wso2carbon.jks</source>
+            <outputDirectory>${entgra-iot-core}/repository/resources/security/</outputDirectory>
+        </file>
     </files>
 
     <dependencySets>
