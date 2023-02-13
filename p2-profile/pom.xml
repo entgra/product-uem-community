@@ -22,7 +22,7 @@
     <parent>
         <groupId>io.entgra.product.community</groupId>
         <artifactId>product-parent</artifactId>
-        <version>5.1.2-SNAPSHOT</version>
+        <version>5.1.2</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
