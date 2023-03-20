@@ -32,13 +32,13 @@ import java.net.URL;
 /**
  * JMeter Test cases for Device Management APIs.
  */
-public class DeviceMgtCoreAPIJmeterTestCase {
-    private static Log log = LogFactory.getLog(DeviceMgtCoreAPIJmeterTestCase.class);
+public class AndroidDeviceManagementAPIJmeterTestCase {
+    private static Log log = LogFactory.getLog(AndroidDeviceManagementAPIJmeterTestCase.class);
 
-    @Test(description = "Testing the device-mgt core functionalities")
+    @Test(description = "Testing the android device management functionalities")
     public void permutationTest() throws AutomationFrameworkException {
         URL url = Thread.currentThread().getContextClassLoader().getResource(
-                "jmeter-scripts" + File.separator + "DeviceMgtCoreTestPlan.jmx");
+                "jmeter-scripts" + File.separator + "AndroidDeviceManagementAPI.jmx");
         JMeterTest script = new JMeterTest(new File(url.getPath()));
         JMeterTestManager manager = new JMeterTestManager();
         log.info("Running permutation test using jmeter scripts");

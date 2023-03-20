@@ -31,7 +31,7 @@
 
     <test name="iot-test-cases" preserve-order="true" parallel="false">
         <classes>
-            <class name="org.wso2.iot.integration.jmeter.DeviceMgtCoreAPIJmeterTestCase"/>
+            <class name="org.wso2.iot.integration.jmeter.AndroidDeviceManagementAPIJmeterTestCase"/>
         </classes>
     </test>
 </suite>
