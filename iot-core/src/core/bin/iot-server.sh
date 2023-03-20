@@ -370,6 +370,8 @@ do
     -Diot.remotesession.server.host="localhost" \
     -Diot.apim.host="localhost" \
     -Diot.apim.https.port="9443" \
+    -Dmqtt.broker.host="localhost" \
+    -Dmqtt.broker.port="1883" \
     -Denable-api-scopes-sharing="true" \
     -Dagent-bundle="org.wso2.carbon.emm.mdmagent" \
     -Diot.reporting.event.host="" \

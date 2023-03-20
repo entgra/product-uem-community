@@ -89,6 +89,10 @@
             <outputDirectory>${entgra-iot-core}/repository/conf/</outputDirectory>
         </file>
         <file>
+            <source>src/core/conf/input-event-adapters.xml</source>
+            <outputDirectory>${entgra-iot-core}/repository/conf/</outputDirectory>
+        </file>
+        <file>
             <source>src/core/keystores/wso2carbon.jks</source>
             <outputDirectory>${entgra-iot-core}/repository/resources/security/</outputDirectory>
         </file>

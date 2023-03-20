@@ -121,7 +121,7 @@
         <!--Orbit versions-->
         <orbit.h2.engine.version>1.4.199.wso2v1</orbit.h2.engine.version>
 
-        <carbon.device.mgt.plugin.version>6.0.12-SNAPSHOT</carbon.device.mgt.plugin.version>
+        <carbon.device.mgt.plugin.version>6.0.13-SNAPSHOT</carbon.device.mgt.plugin.version>
 
 
     </properties>

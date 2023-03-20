@@ -57,6 +57,49 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>copy-emqx-exhook</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.wso2.carbon.devicemgt-plugins</groupId>
+                                    <artifactId>io.entgra.device.mgt.plugins.emqx.exhook</artifactId>
+                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <classifier>jar-with-dependencies</classifier>
+                                    <outputDirectory>${project.basedir}/target/${entgra-iot-core}/repository/components/lib/</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-emqx-initializer</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.wso2.carbon.devicemgt-plugins</groupId>
+                                    <artifactId>io.entgra.device.mgt.plugins.emqx.initializer</artifactId>
+                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.basedir}/target/${entgra-iot-core}/repository/components/dropins/</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
