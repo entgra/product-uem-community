@@ -351,6 +351,12 @@
                                     org.wso2.carbon.devicemgt:io.entgra.notification.logger.feature:${carbon.device.mgt.version}
                                 </featureArtifactDef>
                                 <!-- End of Notification Logger Feature-->
+
+                                <!-- APIM analytics extension feature-->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.device.mgt.core.apimgt.analytics.extension.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of APIM analytics extension feature-->
                             </featureArtifacts>
                         </configuration>
                     </execution>
@@ -520,6 +526,12 @@
                                 <!--Notification Logger-->
                                 <feature>
                                     <id>io.entgra.notification.logger.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--APIM Analytics extension-->
+                                <feature>
+                                    <id>io.entgra.device.mgt.core.apimgt.analytics.extension.feature.group</id>
                                     <version>${carbon.device.mgt.version}</version>
                                 </feature>
                             </features>
