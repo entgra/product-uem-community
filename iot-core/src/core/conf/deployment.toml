@@ -104,6 +104,9 @@ enable = false
 config_endpoint = "https://localhost:8080/auth/v1"
 auth_token = ""
 
+[web_app.listener]
+class_name = ["org.wso2.carbon.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener", "org.wso2.carbon.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"]
+
 [apim.key_manager]
 #service_url = "https://localhost:${mgt.transport.https.port}/services/"
 #username = "$ref{super_admin.username}"
@@ -277,3 +280,6 @@ grant_validator="org.wso2.carbon.device.mgt.oauth.extensions.validators.AccessTo
 
 [oauth.token_renewal]
 renew_refresh_token=false
+
+[device_mgt_conf.pull_notification_conf]
+enabled=false

@@ -84,7 +84,7 @@
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>update-dbscripts</id>
+                        <id>update-dbscripts-1</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>run</goal>
@@ -93,14 +93,31 @@
                             <target name="replace dbscripts to avoid tenant creation issue ">
                                 <replace file="target/${wso2am}/dbscripts/db2.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/h2.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/informix.sql" token="REG_VALUE LVARCHAR(1000)," value="REG_VALUE LVARCHAR(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/mssql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/mysql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/mysql_cluster.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE VARCHAR2(10000)," />
-                                <replace file="target/${wso2am}/dbscripts/oracle.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE VARCHAR2(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/oracle_rac.sql" token="REG_VALUE VARCHAR2(1000)," value="REG_VALUE VARCHAR2(10000)," />
                                 <replace file="target/${wso2am}/dbscripts/postgresql.sql" token="REG_VALUE VARCHAR(1000)," value="REG_VALUE VARCHAR(10000)," />
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>update-dbscripts-2</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="increase IDN_OAUTH2_ACCESS_TOKEN_SCOPE -> TOKEN_SCOPE column size">
+                                <replace file="target/${wso2am}/dbscripts/apimgt/db2.sql" token="TOKEN_SCOPE VARCHAR (60) NOT NULL," value="TOKEN_SCOPE VARCHAR (255) NOT NULL," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/h2.sql" token="TOKEN_SCOPE VARCHAR (60)," value="TOKEN_SCOPE VARCHAR (255)," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/mssql.sql" token="TOKEN_SCOPE VARCHAR (60)," value="TOKEN_SCOPE VARCHAR (255)," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/mysql.sql" token="TOKEN_SCOPE VARCHAR (60)," value="TOKEN_SCOPE VARCHAR (255)," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/mysql_cluster.sql" token="TOKEN_SCOPE VARCHAR(60)," value="TOKEN_SCOPE VARCHAR(255)," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/oracle.sql" token="TOKEN_SCOPE VARCHAR2 (60)," value="TOKEN_SCOPE VARCHAR2 (255)," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/oracle_rac.sql" token="TOKEN_SCOPE VARCHAR2 (60)," value="TOKEN_SCOPE VARCHAR2 (60)," />
+                                <replace file="target/${wso2am}/dbscripts/apimgt/postgresql.sql" token="TOKEN_SCOPE VARCHAR (60)," value="TOKEN_SCOPE VARCHAR (60)," />
                             </target>
                         </configuration>
                     </execution>
@@ -323,6 +340,23 @@
                                     org.wso2.carbon.devicemgt:io.entgra.device.mgt.extensions.stateengine.feature:${carbon.device.mgt.version}
                                 </featureArtifactDef>
 
+                                <!-- Task Mgt Feature-->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.task.mgt.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of Task Mgt Feature-->
+
+                                <!-- Notification Logger Feature-->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.notification.logger.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of Notification Logger Feature-->
+
+                                <!-- APIM analytics extension feature-->
+                                <featureArtifactDef>
+                                    org.wso2.carbon.devicemgt:io.entgra.device.mgt.core.apimgt.analytics.extension.feature:${carbon.device.mgt.version}
+                                </featureArtifactDef>
+                                <!-- End of APIM analytics extension feature-->
                             </featureArtifacts>
                         </configuration>
                     </execution>
@@ -480,6 +514,24 @@
 
                                 <feature>
                                     <id>io.entgra.device.mgt.extensions.stateengine.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Task mgt-->
+                                <feature>
+                                    <id>io.entgra.task.mgt.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--Notification Logger-->
+                                <feature>
+                                    <id>io.entgra.notification.logger.feature.group</id>
+                                    <version>${carbon.device.mgt.version}</version>
+                                </feature>
+
+                                <!--APIM Analytics extension-->
+                                <feature>
+                                    <id>io.entgra.device.mgt.core.apimgt.analytics.extension.feature.group</id>
                                     <version>${carbon.device.mgt.version}</version>
                                 </feature>
                             </features>
