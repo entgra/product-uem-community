@@ -114,7 +114,7 @@
         <entgra-emm-community>entgra-emm-community-${project.version}</entgra-emm-community>
 
         <!-- Carbon Device Management-->
-        <carbon.device.mgt.version>5.0.22</carbon.device.mgt.version>
+        <carbon.device.mgt.version>5.0.23</carbon.device.mgt.version>
 
         <carbon.p2.plugin.version>5.1.2</carbon.p2.plugin.version>
 
