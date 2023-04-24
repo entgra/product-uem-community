@@ -107,7 +107,7 @@
     <properties>
 
         <wso2am-nexus-artifact-version>4.0.0</wso2am-nexus-artifact-version>
-        <wso2am>am-parent-4.0.0</wso2am>
+        <wso2am>wso2am-4.0.0</wso2am>
 
         <entgra-iot-core>entgra-iot-core-${project.version}</entgra-iot-core>
         <entgra-iot-community>entgra-iot-community-${project.version}</entgra-iot-community>
