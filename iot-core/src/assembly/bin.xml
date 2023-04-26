@@ -93,12 +93,20 @@
             <outputDirectory>${entgra-iot-core}/repository/conf/</outputDirectory>
         </file>
         <file>
+            <source>src/core/conf/output-event-adapters.xml.j2</source>
+            <outputDirectory>${entgra-iot-core}/repository/resources/conf/templates/repository/conf</outputDirectory>
+        </file>
+        <file>
             <source>src/core/keystores/wso2carbon.jks</source>
             <outputDirectory>${entgra-iot-core}/repository/resources/security/</outputDirectory>
         </file>
         <file>
             <source>src/core/keystores/client-truststore.jks</source>
             <outputDirectory>${entgra-iot-core}/repository/resources/security/</outputDirectory>
+        </file>
+        <file>
+            <source>src/core/samples/device-plugins-deployer.xml</source>
+            <outputDirectory>${entgra-iot-core}/samples/</outputDirectory>
         </file>
     </files>
 
