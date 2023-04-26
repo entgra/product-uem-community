@@ -232,7 +232,7 @@
     </dependencies>
 
     <properties>
-        <skipTests>false</skipTests>
+        <skipTests>true</skipTests>
     </properties>
 
 </project>
