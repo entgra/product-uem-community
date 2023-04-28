@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~ Copyright (c) 2018-2023, Entgra (Pvt) Ltd. (http://entgra.io) All Rights Reserved.
   ~
-  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Entgra (Pvt) Ltd. licenses this file to you under the Apache License,
   ~ Version 2.0 (the "License"); you may not use this file except
   ~ in compliance with the License.
   ~ You may obtain a copy of the License at
@@ -20,8 +20,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.entgra.product.community</groupId>
-    <artifactId>product-parent</artifactId>
+    <groupId>io.entgra.community.uem</groupId>
+    <artifactId>io.entgra.community.uem.parent</artifactId>
     <packaging>pom</packaging>
     <version>5.2.2-SNAPSHOT</version>
     <name>Entgra Community Product - Parent</name>
@@ -35,10 +35,9 @@
     </parent>
 
     <modules>
-        <module>iot-core</module>
+        <module>uem-core</module>
         <module>p2-profile</module>
         <module>distribution</module>
-        <module>integration-test</module>
     </modules>
 
     <dependencyManagement>
@@ -98,8 +97,8 @@
             </dependency>
 
             <dependency>
-                <groupId>io.entgra.product.community</groupId>
-                <artifactId>entgra-iot-core</artifactId>
+                <groupId>io.entgra.community.uem</groupId>
+                <artifactId>io.entgra.community.uem.core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -359,9 +358,8 @@
         <wso2am-nexus-artifact-version>4.0.0</wso2am-nexus-artifact-version>
         <wso2am>wso2am-4.0.0</wso2am>
 
-        <entgra-iot-core>entgra-iot-core-${project.version}</entgra-iot-core>
-        <entgra-iot-community>entgra-iot-community-${project.version}</entgra-iot-community>
-        <entgra-emm-community>entgra-emm-community-${project.version}</entgra-emm-community>
+        <entgra-uem-core>io.entgra.community.uem.core-${project.version}</entgra-uem-core>
+        <entgra-uem-community>product-uem-community-${project.version}</entgra-uem-community>
 
         <!-- Carbon Device Management-->
         <carbon.device.mgt.version>5.0.25</carbon.device.mgt.version>
