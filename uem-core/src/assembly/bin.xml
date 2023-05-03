@@ -104,10 +104,6 @@
             <source>src/core/keystores/client-truststore.jks</source>
             <outputDirectory>${entgra-uem-core}/repository/resources/security/</outputDirectory>
         </file>
-        <file>
-            <source>src/core/samples/device-plugins-deployer.xml</source>
-            <outputDirectory>${entgra-uem-core}/samples/</outputDirectory>
-        </file>
     </files>
 
     <dependencySets>

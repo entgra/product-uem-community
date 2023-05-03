@@ -77,10 +77,10 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.carbon.device.mgt.mobile.android.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.mobile.android.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                                 <!--<featureArtifactDef>-->
-                                <!--org.wso2.carbon.devicemgt-plugins:org.wso2.carbon.device.mgt.notification.listener.feature:${carbon.device.mgt.plugin.version}-->
+                                <!--io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.notification.listener.feature:${carbon.device.mgt.plugin.version}-->
                                 <!--</featureArtifactDef>-->
                             </featureArtifacts>
                         </configuration>
@@ -99,11 +99,11 @@
                             <deleteOldProfileFiles>true</deleteOldProfileFiles>
                             <features>
                                 <feature>
-                                    <id>org.wso2.carbon.device.mgt.mobile.android.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.mobile.android.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                                 <!--<feature>-->
-                                <!--<id>org.wso2.carbon.device.mgt.notification.listener.feature.group</id>-->
+                                <!--<id>io.entgra.device.mgt.plugins.notification.listener.feature.group</id>-->
                                 <!--<version>${carbon.device.mgt.plugin.version}</version>-->
                                 <!--</feature>-->
                             </features>
