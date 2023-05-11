@@ -110,8 +110,8 @@
         <dependencySet>
             <outputDirectory>${entgra-uem-core}/repository/components/dropins</outputDirectory>
             <includes>
-                <include>org.wso2.carbon.devicemgt:org.wso2.carbon.device.mgt.oauth.extensions</include>
-                <include>org.wso2.carbon.devicemgt:org.wso2.carbon.apimgt.keymgt.extension</include>
+                <include>io.entgra.device.mgt.core:io.entgra.device.mgt.core.device.mgt.oauth.extensions</include>
+                <include>io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.keymgt.extension</include>
             </includes>
             <!--<useProjectArtifact>false</useProjectArtifact>-->
             <!--<useTransitiveDependencies>true</useTransitiveDependencies>-->

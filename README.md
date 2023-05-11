@@ -2,7 +2,7 @@
 
 <a href='https://opensource.org/licenses/Apache-2.0'><img src='https://img.shields.io/badge/License-Apache%202.0-blue.svg'></a><br/>
 
-[![pipeline status](https://builder.entgra.net/buildStatus/icon?job=community-product)](https://repository.entgra.net/community/community-product/commits/master)
+[![pipeline status](https://builder.entgra.net/buildStatus/icon?job=product-uem-community)](https://repository.entgra.net/community/product-uem-community/commits/master)
 
 Entgra IoT Server is a complete solution that enables device manufacturers and enterprises to connect and manage their devices, build apps, manage events, secure devices and data, and visualize sensor data in a scalable manner.
 

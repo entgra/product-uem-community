@@ -77,10 +77,10 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.mobile.android.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.mobile.android.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                                 <!--<featureArtifactDef>-->
-                                <!--io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.notification.listener.feature:${carbon.device.mgt.plugin.version}-->
+                                <!--io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.notification.listener.feature:${io.entgra.device.mgt.plugins.version}-->
                                 <!--</featureArtifactDef>-->
                             </featureArtifacts>
                         </configuration>
@@ -100,11 +100,11 @@
                             <features>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.mobile.android.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                                 <!--<feature>-->
                                 <!--<id>io.entgra.device.mgt.plugins.notification.listener.feature.group</id>-->
-                                <!--<version>${carbon.device.mgt.plugin.version}</version>-->
+                                <!--<version>${io.entgra.device.mgt.plugins.version}</version>-->
                                 <!--</feature>-->
                             </features>
                         </configuration>
