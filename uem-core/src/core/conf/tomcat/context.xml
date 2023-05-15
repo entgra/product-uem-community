@@ -47,7 +47,7 @@
 	 'managed-api-isSecured'  - Indicates if the 'Managed API' needs to be exposed over a secured channel.
 	 'managed-api-transports' - Transports through which the 'Managed API' is exposed.
      -->
-    <Listener className="org.wso2.carbon.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener"/>
+    <Listener className="io.entgra.device.mgt.core.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener"/>
 
     <!-- WebAppDeploymentLifecycleListener listens to webapp deployment events and adds the custom permissions defined in webapps'
         META-INF/permissions.xml to the permissions/admin section of registry. Given below is a sample of permissions.xml file.
@@ -71,5 +71,5 @@
             </Permission>
     </PermissionConfiguration>
      -->
-    <Listener className="org.wso2.carbon.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"/>
+    <Listener className="io.entgra.device.mgt.core.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"/>
 </Context>

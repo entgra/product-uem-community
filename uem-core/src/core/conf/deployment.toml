@@ -105,7 +105,7 @@ config_endpoint = "https://localhost:8080/auth/v1"
 auth_token = ""
 
 [web_app.listener]
-class_name = ["org.wso2.carbon.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener", "org.wso2.carbon.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"]
+class_name = ["io.entgra.device.mgt.core.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener", "io.entgra.device.mgt.core.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"]
 
 [apim.key_manager]
 #service_url = "https://localhost:${mgt.transport.https.port}/services/"
@@ -115,7 +115,7 @@ class_name = ["org.wso2.carbon.apimgt.webapp.publisher.lifecycle.listener.APIPub
 #pool.max_idle = 100
 #key_validation_handler_type = "default"
 #key_validation_handler_type = "custom"
-key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.extension.KeyValidationHandler"
+key_validation_handler_impl = "io.entgra.device.mgt.core.apimgt.keymgt.extension.KeyValidationHandler"
 
 #[apim.idp]
 #server_url = "https://localhost:${mgt.transport.https.port}"
@@ -271,12 +271,12 @@ maxHttpHeaderSize="16384"
 maxHttpHeaderSize="16384"
 
 [oauth.grant_type.jwt_bearer]
-grant_handler="org.wso2.carbon.device.mgt.oauth.extensions.handlers.grant.ExtendedJWTGrantHandler"
+grant_handler="io.entgra.device.mgt.core.device.mgt.oauth.extensions.handlers.grant.ExtendedJWTGrantHandler"
 
 [[oauth.custom_grant_type]]
 name="access_token"
-grant_handler="org.wso2.carbon.device.mgt.oauth.extensions.handlers.grant.AccessTokenGrantHandler"
-grant_validator="org.wso2.carbon.device.mgt.oauth.extensions.validators.AccessTokenGrantValidator"
+grant_handler="io.entgra.device.mgt.core.device.mgt.oauth.extensions.handlers.grant.AccessTokenGrantHandler"
+grant_validator="io.entgra.device.mgt.core.device.mgt.oauth.extensions.validators.AccessTokenGrantValidator"
 
 [oauth.token_renewal]
 renew_refresh_token=false

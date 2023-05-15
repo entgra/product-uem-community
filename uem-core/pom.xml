@@ -186,7 +186,7 @@
                                 <property name="db.dir" value="target/${wso2am}/repository/database" />
                                 <property name="userid" value="wso2carbon" />
                                 <property name="password" value="wso2carbon" />
-                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/WSO2DM_DB;DB_CLOSE_ON_EXIT=FALSE" />
+                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/DM_DB;DB_CLOSE_ON_EXIT=FALSE" />
 
                                 <sql driver="org.h2.Driver" url="${dbURL}" userid="${userid}" password="${password}" autocommit="true" onerror="continue">
                                     <classpath refid="maven.dependency.classpath" />
@@ -213,7 +213,7 @@
                                 <property name="db.dir" value="target/${wso2am}/repository/database" />
                                 <property name="userid" value="wso2carbon" />
                                 <property name="password" value="wso2carbon" />
-                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/WSO2DM_DB;DB_CLOSE_ON_EXIT=FALSE" />
+                                <property name="dbURL" value="jdbc:h2:file:${basedir}/${db.dir}/DM_DB;DB_CLOSE_ON_EXIT=FALSE" />
 
                                 <sql driver="org.h2.Driver" url="${dbURL}" userid="${userid}" password="${password}" autocommit="true" onerror="continue">
                                     <classpath refid="maven.dependency.classpath" />
