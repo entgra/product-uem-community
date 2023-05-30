@@ -292,6 +292,9 @@
                                     io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.webapp.publisher.feature:${io.entgra.device.mgt.core.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
+                                    io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.extension.rest.api.feature:${io.entgra.device.mgt.core.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
                                     io.entgra.device.mgt.core:io.entgra.device.mgt.core.identity.jwt.client.extension.feature:${io.entgra.device.mgt.core.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
