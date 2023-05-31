@@ -467,6 +467,10 @@
                                     <version>${io.entgra.device.mgt.core.version}</version>
                                 </feature>
                                 <feature>
+                                    <id>io.entgra.device.mgt.core.apimgt.extension.rest.api.feature.group</id>
+                                    <version>${io.entgra.device.mgt.core.version}</version>
+                                </feature>
+                                <feature>
                                     <id>io.entgra.device.mgt.core.apimgt.keymgt.extension.feature.group</id>
                                     <version>${io.entgra.device.mgt.core.version}</version>
                                 </feature>
