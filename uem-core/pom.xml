@@ -52,7 +52,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <id>extract-pack</id>
@@ -68,7 +67,7 @@
                                     <version>${wso2am-nexus-artifact-version}</version>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>
-                                    <outputDirectory>${project.basedir}/target/wso2am-${wso2am-nexus-artifact-version}</outputDirectory>
+                                    <outputDirectory>${project.basedir}/target</outputDirectory>
                                     <destFileName>wso2am-${wso2am-nexus-artifact-version}</destFileName>
                                 </artifactItem>
                             </artifactItems>
@@ -254,7 +253,6 @@
             <plugin>
                 <groupId>org.wso2.maven</groupId>
                 <artifactId>carbon-p2-plugin</artifactId>
-                <version>${carbon.p2.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>2-p2-repo-generation</id>
@@ -263,6 +261,7 @@
                             <goal>p2-repo-gen</goal>
                         </goals>
                         <configuration>
+                            <p2AgentLocation>${basedir}/target/p2-agent</p2AgentLocation>
                             <metadataRepository>file:${basedir}/target/p2-repo</metadataRepository>
                             <artifactRepository>file:${basedir}/target/p2-repo</artifactRepository>
                             <publishArtifacts>true</publishArtifacts>
@@ -589,7 +588,6 @@
             <plugin>
                 <groupId>com.google.code.maven-replacer-plugin</groupId>
                 <artifactId>replacer</artifactId>
-                <version>1.5.3</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
