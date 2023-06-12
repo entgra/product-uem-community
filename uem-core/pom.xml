@@ -351,9 +351,6 @@
 
                                 <!-- App Manager Features-->
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.core:io.entgra.device.mgt.core.application.mgt.api.feature:${io.entgra.device.mgt.core.version}
-                                </featureArtifactDef>
-                                <featureArtifactDef>
                                     io.entgra.device.mgt.core:io.entgra.device.mgt.core.application.mgt.server.feature:${io.entgra.device.mgt.core.version}
                                 </featureArtifactDef>
                                 <!-- End of New App Manager Features-->
@@ -429,10 +426,6 @@
                                 <!--End of Grafana Management Features-->
 
                                 <!--App Manager Features-->
-                                <feature>
-                                    <id>io.entgra.device.mgt.core.application.mgt.api.feature.group</id>
-                                    <version>${io.entgra.device.mgt.core.version}</version>
-                                </feature>
                                 <feature>
                                     <id>io.entgra.device.mgt.core.application.mgt.server.feature.group</id>
                                     <version>${io.entgra.device.mgt.core.version}</version>
