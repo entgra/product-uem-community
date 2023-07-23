@@ -23,7 +23,7 @@
     <groupId>io.entgra.community.uem</groupId>
     <artifactId>io.entgra.community.uem.parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.3</version>
+    <version>5.2.4-SNAPSHOT</version>
     <name>Entgra Community Product - Parent</name>
     <url>http://entgra.io</url>
     <description>Entgra Community Product</description>
@@ -343,7 +343,7 @@
         <url>https://repository.entgra.net/community/product-uem-community.git</url>
         <developerConnection>scm:git:https://repository.entgra.net/community/product-uem-community.git</developerConnection>
         <connection>scm:git:https://repository.entgra.net/community/product-uem-community.git</connection>
-        <tag>v5.2.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
