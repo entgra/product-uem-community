@@ -322,7 +322,7 @@
         <entgra-uem-community>entgra-uem-community-${project.version}</entgra-uem-community>
 
         <!-- Carbon Device Management-->
-        <io.entgra.device.mgt.core.version>5.0.32-SNAPSHOT</io.entgra.device.mgt.core.version>
+        <io.entgra.device.mgt.core.version>5.0.34-SNAPSHOT</io.entgra.device.mgt.core.version>
 
         <carbon.p2.plugin.version>5.1.2</carbon.p2.plugin.version>
 
