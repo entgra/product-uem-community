@@ -384,6 +384,8 @@
                 <configuration>
                     <preparationGoals>clean install</preparationGoals>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <username>${env.GIT_USERNAME}</username>
+        <password>${env.GIT_PASSWORD}</password>
                 </configuration>
             </plugin>
             <plugin>
