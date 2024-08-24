@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2018-2023, Entgra (Pvt) Ltd. (http://entgra.io) All Rights Reserved.
+  ~ Copyright (c) 2018 - 2023, Entgra (Pvt) Ltd. (http://www.entgra.io) All Rights Reserved.
   ~
   ~ Entgra (Pvt) Ltd. licenses this file to you under the Apache License,
   ~ Version 2.0 (the "License"); you may not use this file except
   ~ in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
-  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~    http://www.apache.org/licenses/LICENSE-2.0
   ~
   ~ Unless required by applicable law or agreed to in writing,
   ~ software distributed under the License is distributed on an
@@ -23,7 +23,7 @@
     <groupId>io.entgra.community.uem</groupId>
     <artifactId>io.entgra.community.uem.parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.2-SNAPSHOT</version>
+    <version>6.0.1-SNAPSHOT</version>
     <name>Entgra Community Product - Parent</name>
     <url>https://entgra.io</url>
     <description>Entgra Community Product</description>
@@ -78,14 +78,14 @@
         <entgra-uem-community>entgra-uem-community-${project.version}</entgra-uem-community>
 
         <!-- Carbon Device Management-->
-        <io.entgra.device.mgt.core.version>5.0.26-SNAPSHOT</io.entgra.device.mgt.core.version>
+        <io.entgra.device.mgt.core.version>5.0.42-SNAPSHOT</io.entgra.device.mgt.core.version>
 
         <carbon.p2.plugin.version>5.2.42</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
         <orbit.h2.version>2.1.210.wso2v1</orbit.h2.version>
 
-        <io.entgra.device.mgt.plugins.version>6.0.17-SNAPSHOT</io.entgra.device.mgt.plugins.version>
+        <io.entgra.device.mgt.plugins.version>6.0.30-SNAPSHOT</io.entgra.device.mgt.plugins.version>
 
         <!--Testing-->
         <google.gson.version>2.9.1</google.gson.version>
