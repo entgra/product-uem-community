@@ -78,14 +78,14 @@
         <entgra-uem-community>entgra-uem-community-${project.version}</entgra-uem-community>
 
         <!-- Carbon Device Management-->
-        <io.entgra.device.mgt.core.version>5.0.42-SNAPSHOT</io.entgra.device.mgt.core.version>
+        <io.entgra.device.mgt.core.version>6.0.0-SNAPSHOT</io.entgra.device.mgt.core.version>
 
         <carbon.p2.plugin.version>5.2.42</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
         <orbit.h2.version>2.1.210.wso2v1</orbit.h2.version>
 
-        <io.entgra.device.mgt.plugins.version>6.0.30-SNAPSHOT</io.entgra.device.mgt.plugins.version>
+        <io.entgra.device.mgt.plugins.version>7.0.0-SNAPSHOT</io.entgra.device.mgt.plugins.version>
 
         <!--Testing-->
         <google.gson.version>2.9.1</google.gson.version>
@@ -153,13 +153,13 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>5.1.1</version>
+                    <version>3.3.0</version>
                     <extensions>true</extensions>
                     <configuration>
+                        <instructions>
+                            <Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=11))"</Require-Capability>
+                        </instructions>
                         <obrRepository>NONE</obrRepository>
-                        <!--<instructions>
-                          <_include>-osgi.bnd</_include>
-                        </instructions>-->
                     </configuration>
                 </plugin>
                 <plugin>
