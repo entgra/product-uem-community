@@ -6,7 +6,7 @@ base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
 server_role = "default"
 
 [database_configuration]
-enable_h2_console = "true"
+enable_h2_console = true
 
 [super_admin]
 username = "admin"
@@ -38,6 +38,9 @@ key_password =  "wso2carbon"
 [identity_mgt.endpoint]
 enable_self_signup_endpoint = false
 
+#[keystore.listener_profile]
+#bind_address = "0.0.0.0"
+
 #[keystore.primary]
 #file_name =  "wso2carbon.jks"
 #type =  "JKS"
@@ -55,6 +58,7 @@ enable_self_signup_endpoint = false
 [[apim.gateway.environment]]
 name = "Default"
 type = "hybrid"
+provider = "wso2"
 display_in_api_console = true
 description = "This is a hybrid gateway that handles both production and sandbox token traffic."
 show_as_token_endpoint_url = true
@@ -101,13 +105,10 @@ gateway_labels =["Default"]
 
 [apim.analytics]
 enable = false
-config_endpoint = "https://localhost:8080/auth/v1"
 auth_token = ""
 
-[web_app.listener]
-class_name = ["io.entgra.device.mgt.core.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener", "io.entgra.device.mgt.core.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"]
-
 [apim.key_manager]
+enable_apikey_subscription_validation = true
 #service_url = "https://localhost:${mgt.transport.https.port}/services/"
 #username = "$ref{super_admin.username}"
 #password = "$ref{super_admin.password}"
@@ -259,6 +260,14 @@ notification_endpoint = "https://localhost:${mgt.transport.https.port}/internal/
 username = "${admin.username}"
 password = "${admin.password}"
 'header.X-WSO2-KEY-MANAGER' = "default"
+
+[web_app.listener]
+class_name = ["io.entgra.device.mgt.core.apimgt.webapp.publisher.lifecycle.listener.APIPublisherLifecycleListener", "io.entgra.device.mgt.core.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"]
+
+[oauth.grant_type.token_exchange]
+enable = true
+allow_refresh_tokens = true
+iat_validity_period = "1h"
 
 [apim.sync_runtime_artifacts.gateway.skip_list]
 apis = ["_TokenAPI_.xml", "_API_Key_Management_.xml", "health-check.xml", "admin--Android-Mutual-SSL-Configuration-Management.xml", "admin--Android-Mutual-SSL-Device-Management.xml", "admin--Android-Mutual-SSL-Event-Receiver.xml", "admin--IOS-Enrollment.xml", "admin--IOS-Enrollment-Authenticate-Agent.xml", "admin--IOS-Enrollment-Profile.xml", "admin--IOS-Enrollment-Profile-DEP.xml", "admin--IOS-Enrollment-Scep.xml", "admin--Windows_8.1_Device_Management_Service.xml", "admin--Windows_8.1_Device_Management_Service_v1.0.0.xml", "admin--Windows_8.1_Enrollment_Service.xml", "admin--Windows_8.1_Enrollment_Service_v1.0.0.xml", "admin--Windows_10_Device_management.xml", "admin--Windows_10_Device_management_v1.0.0.xml", "admin--Windows_10_Enrollment_Service.xml", "admin--Windows_10_Enrollment_Service_v1.0.0.xml", "admin--Windows_Discovery_Service.xml", "admin--Windows_Discovery_Service_v1.0.0.xml", "admin--Windows_Enrollment_policy_Service.xml", "admin--Windows_Enrollment_policy_Service_v1.0.0.xml"]
