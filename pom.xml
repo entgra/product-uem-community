@@ -340,9 +340,9 @@
     </properties>
 
     <scm>
-        <url>https://repository.entgra.net/community/product-uem-community.git</url>
-        <developerConnection>scm:git:https://repository.entgra.net/community/product-uem-community.git</developerConnection>
-        <connection>scm:git:https://repository.entgra.net/community/product-uem-community.git</connection>
+        <url>https://github.com/entgra/product-uem-community.git</url>
+        <developerConnection>scm:git:https://github.com/entgra/product-uem-community.git</developerConnection>
+        <connection>scm:git:https://github.com/entgra/product-uem-community.git</connection>
         <tag>HEAD</tag>
     </scm>
 
