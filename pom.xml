@@ -78,7 +78,7 @@
         <entgra-uem-community>entgra-uem-community-${project.version}</entgra-uem-community>
 
         <!-- Carbon Device Management-->
-        <io.entgra.device.mgt.core.version>6.0.2</io.entgra.device.mgt.core.version>
+        <io.entgra.device.mgt.core.version>6.0.3</io.entgra.device.mgt.core.version>
 
         <carbon.p2.plugin.version>5.2.74</carbon.p2.plugin.version>
 
