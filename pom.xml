@@ -78,23 +78,23 @@
         <entgra-uem-community>entgra-uem-community-${project.version}</entgra-uem-community>
 
         <!-- Carbon Device Management-->
-        <io.entgra.device.mgt.core.version>6.0.0-SNAPSHOT</io.entgra.device.mgt.core.version>
+        <io.entgra.device.mgt.core.version>6.0.2</io.entgra.device.mgt.core.version>
 
         <carbon.p2.plugin.version>5.2.74</carbon.p2.plugin.version>
 
         <!--Orbit versions-->
         <orbit.h2.version>2.1.210.wso2v1</orbit.h2.version>
 
-        <io.entgra.device.mgt.plugins.version>7.0.0-SNAPSHOT</io.entgra.device.mgt.plugins.version>
+        <io.entgra.device.mgt.plugins.version>7.0.1</io.entgra.device.mgt.plugins.version>
 
         <!--Testing-->
         <google.gson.version>2.9.1</google.gson.version>
     </properties>
 
     <scm>
-        <url>https://repository.entgra.net/community/product-uem-community.git</url>
-        <developerConnection>scm:git:https://repository.entgra.net/community/product-uem-community.git</developerConnection>
-        <connection>scm:git:https://repository.entgra.net/community/product-uem-community.git</connection>
+        <url>https://github.com/entgra/product-uem-community.git</url>
+        <developerConnection>scm:git:https://github.com/entgra/product-uem-community.git</developerConnection>
+        <connection>scm:git:https://github.com/entgra/product-uem-community.git</connection>
         <tag>HEAD</tag>
     </scm>
 
