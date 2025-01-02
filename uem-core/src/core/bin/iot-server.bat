@@ -1,18 +1,20 @@
 @echo off
 REM ---------------------------------------------------------------------------
-REM        Copyright 2005-2009 WSO2, Inc. http://www.wso2.org
-REM
-REM  Licensed under the Apache License, Version 2.0 (the "License");
-REM  you may not use this file except in compliance with the License.
-REM  You may obtain a copy of the License at
-REM
-REM      http://www.apache.org/licenses/LICENSE-2.0
-REM
-REM  Unless required by applicable law or agreed to in writing, software
-REM  distributed under the License is distributed on an "AS IS" BASIS,
-REM  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-REM  See the License for the specific language governing permissions and
-REM  limitations under the License.
+@REM Copyright (c) 2018-2023, Entgra (Pvt) Ltd. (http://entgra.io) All Rights Reserved.
+@REM
+@REM Entgra (Pvt) Ltd. licenses this file to you under the Apache License,
+@REM Version 2.0 (the "License"); you may not use this file except
+@REM in compliance with the License.
+@REM You may obtain a copy of the License at
+@REM
+@REM http://www.apache.org/licenses/LICENSE-2.0
+@REM
+@REM Unless required by applicable law or agreed to in writing,
+@REM software distributed under the License is distributed on an
+@REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+@REM KIND, either express or implied. See the License for the
+@REM specific language governing permissions and limitations
+@REM under the License.
 
 rem ---------------------------------------------------------------------------
 rem Main Script for WSO2 Carbon
@@ -172,13 +174,13 @@ set CMD=RUN %*
 :checkJdk17
 PATH %PATH%;%JAVA_HOME%\bin\
 for /f tokens^=2-5^ delims^=.-_^" %%j in ('java -fullversion 2^>^&1') do set "JAVA_VERSION=%%j%%k"
-if %JAVA_VERSION% LSS 17 goto unknownJdk
-if %JAVA_VERSION% GTR 110 goto unknownJdk
+if %JAVA_VERSION% LSS 110 goto unknownJdk
+if %JAVA_VERSION% GTR 170 goto unknownJdk
 goto jdk17
 
 :unknownJdk
 echo Starting WSO2 Carbon (in unsupported JDK)
-echo [ERROR] CARBON is supported only on JDK 1.7, 1.8, 9, 10 and 11
+echo [ERROR] CARBON is supported only between JDK 11 and JDK 17
 goto jdk17
 
 :jdk17
@@ -203,7 +205,7 @@ set CARBON_CLASSPATH=".\lib\*";%CARBON_CLASSPATH%
 if %JAVA_VERSION% GEQ 110 set CARBON_CLASSPATH=".\lib\endorsed\*";%CARBON_CLASSPATH%
 
 if %JAVA_VERSION% LEQ 18 set JAVA_VER_BASED_OPTS=-Djava.endorsed.dirs=".\lib\endorsed";"%JAVA_HOME%\jre\lib\endorsed";"%JAVA_HOME%\lib\endorsed"
-if %JAVA_VERSION% GEQ 110 set JAVA_VER_BASED_OPTS=--add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens java.rmi/sun.rmi.transport=ALL-UNNAMED
+if %JAVA_VERSION% GEQ 110 set JAVA_VER_BASED_OPTS=--add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens java.rmi/sun.rmi.transport=ALL-UNNAMED  --add-opens=java.base/java.io=ALL-UNNAMED
 
 set CMD_LINE_ARGS=-Xbootclasspath/a:%CARBON_XBOOTCLASSPATH% -Xms256m -Xmx1024m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="%CARBON_HOME%\repository\logs\heap-dump.hprof"
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dcom.sun.management.jmxremote -classpath %CARBON_CLASSPATH% %JAVA_OPTS% %JAVA_VER_BASED_OPTS%
@@ -217,6 +219,9 @@ set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dcom.atomikos.icatch.hide_init_file_path="tru
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true -Dcom.sun.jndi.ldap.connect.pool.authentication=simple -Dcom.sun.jndi.ldap.connect.pool.timeout=3000
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dorg.terracotta.quartz.skipUpdateCheck=true -Dcarbon.classpath=%CARBON_CLASSPATH% -Dfile.encoding=UTF8 -DworkerNode=false -Dcarbon.new.config.dir.path="%CARBON_HOME%\repository\resources\conf"
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Djava.endorsed.dirs=%JAVA_ENDORSED% -Dorg.wso2.ignoreHostnameVerification=true -Dorg.opensaml.httpclient.https.disableHostnameVerification=true -Dhttpclient.hostnameVerifier="DefaultAndLocalhost"
+set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dlog4j2.contextSelector="org.apache.logging.log4j.core.async.AsyncLoggerContextSelector"
+set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dorg.ops4j.pax.logging.logReaderEnabled="false"
+set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dorg.ops4j.pax.logging.eventAdminEnabled="false"
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Diot.core.host="localhost" -Diot.core.https.port="9443" -Diot.core.http.port="9763" -Diot.gateway.host="localhost" -Diot.gateway.https.port="8243" -Diot.gateway.http.port="8280" -Diot.gateway.carbon.https.port="9443" -Diot.gateway.carbon.http.port="9763" -Diot.gateway.websocket.ws.port="9099" -Diot.gateway.websocket.wss.port="8099" -Diot.remotesession.server.host="localhost" -Diot.remotesession.server.https.port="9443"
 set CMD_LINE_ARGS=%CMD_LINE_ARGS% -Dmqtt.broker.host="localhost" -Dmqtt.broker.port="1883"
 

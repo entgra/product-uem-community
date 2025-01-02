@@ -1,18 +1,21 @@
 #!/bin/sh
-# ----------------------------------------------------------------------------
-#  Copyright 2005-2012 WSO2, Inc. http://www.wso2.org
 #
-#  Licensed under the Apache License, Version 2.0 (the "License");
-#  you may not use this file except in compliance with the License.
-#  You may obtain a copy of the License at
+# Copyright (c) 2018-2023, Entgra (Pvt) Ltd. (http://entgra.io) All Rights Reserved.
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# Entgra (Pvt) Ltd. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
 #
-#  Unless required by applicable law or agreed to in writing, software
-#  distributed under the License is distributed on an "AS IS" BASIS,
-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#  See the License for the specific language governing permissions and
-#  limitations under the License.
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
 
 # ----------------------------------------------------------------------------
 # Main Script for the WSO2 Carbon Server
@@ -235,9 +238,9 @@ fi
 # ---------- Handle the SSL Issue with proper JDK version --------------------
 java_version=$("$JAVACMD" -version 2>&1 | awk -F '"' '/version/ {print $2}')
 java_version_formatted=$(echo "$java_version" | awk -F. '{printf("%02d%02d",$1,$2);}')
-if [ $java_version_formatted -lt 0107 ] || [ $java_version_formatted -gt 1100 ]; then
+if [ $java_version_formatted -lt 1100 ] || [ $java_version_formatted -gt 1700 ]; then
    echo " Starting WSO2 Carbon (in unsupported JDK)"
-   echo " [ERROR] CARBON is supported only on JDK 1.7, 1.8, 9, 10 and 11"
+   echo " [ERROR] CARBON is supported only between JDK 11 and JDK 17"
 fi
 
 CARBON_XBOOTCLASSPATH=""
@@ -307,11 +310,10 @@ echo "Using Java memory options: $JVM_MEM_OPTS"
 #To monitor a Carbon server in remote JMX mode on linux host machines, set the below system property.
 #   -Djava.rmi.server.hostname="your.IP.goes.here"
 
-JAVA_VER_BASED_OPTS=""
+JAVA_VER_BASED_OPTS="--add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens java.rmi/sun.rmi.transport=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED"
 
-
-if [ $java_version_formatted -ge 1100 ]; then
-    JAVA_VER_BASED_OPTS="--add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens java.rmi/sun.rmi.transport=ALL-UNNAMED"
+if [ $java_version_formatted -ge 1700 ]; then
+    JAVA_VER_BASED_OPTS="$JAVA_VER_BASED_OPTS --add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED"
 fi
 
 while [ "$status" = "$START_EXIT_STATUS" ]
@@ -354,6 +356,9 @@ do
     -DenableCorrelationLogs=false \
     -Dcarbon.new.config.dir.path="$CARBON_HOME/repository/resources/conf" \
     -Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=net.sf.saxon.xpath.XPathFactoryImpl \
+    -Dlog4j2.contextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector \
+    -Dorg.ops4j.pax.logging.logReaderEnabled=false \
+    -Dorg.ops4j.pax.logging.eventAdminEnabled=false \
     -Diot.core.host="localhost" \
     -Diot.core.https.port="9443" \
     -Diot.core.http.port="9763" \
