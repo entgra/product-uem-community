@@ -109,7 +109,6 @@ auth_token = ""
 #pool.max_idle = 100
 #key_validation_handler_type = "default"
 #key_validation_handler_type = "custom"
-key_validation_handler_impl = "io.entgra.device.mgt.core.apimgt.keymgt.extension.KeyValidationHandler"
 
 #[apim.idp]
 #server_url = "https://localhost:${mgt.transport.https.port}"
@@ -255,7 +254,7 @@ password = "${admin.password}"
 'header.X-WSO2-KEY-MANAGER' = "default"
 
 [apim.sync_runtime_artifacts.gateway.skip_list]
-apis = ["_TokenAPI_.xml", "_API_Key_Management_.xml", "admin--Android-Mutual-SSL-Configuration-Management.xml", "admin--Android-Mutual-SSL-Device-Management.xml", "admin--Android-Mutual-SSL-Event-Receiver.xml"]
+apis = ["_TokenAPI_.xml", "_API_Application_Registration_.xml", "admin--Android-Mutual-SSL-Configuration-Management.xml", "admin--Android-Mutual-SSL-Device-Management.xml", "admin--Android-Mutual-SSL-Event-Receiver.xml"]
 sequences = ["_api_registration_fault_.xml"]
 
 [transport.https.properties]
