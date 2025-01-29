@@ -303,9 +303,6 @@
                                     io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.application.extension.feature:${io.entgra.device.mgt.core.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.keymgt.extension.feature:${io.entgra.device.mgt.core.version}
-                                </featureArtifactDef>
-                                <featureArtifactDef>
                                     io.entgra.device.mgt.core:io.entgra.device.mgt.core.email.sender.feature:${io.entgra.device.mgt.core.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
@@ -460,10 +457,6 @@
                                 </feature>
                                 <feature>
                                     <id>io.entgra.device.mgt.core.apimgt.extension.rest.api.feature.group</id>
-                                    <version>${io.entgra.device.mgt.core.version}</version>
-                                </feature>
-                                <feature>
-                                    <id>io.entgra.device.mgt.core.apimgt.keymgt.extension.feature.group</id>
                                     <version>${io.entgra.device.mgt.core.version}</version>
                                 </feature>
 
