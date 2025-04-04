@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.entgra.community.uem</groupId>
         <artifactId>io.entgra.community.uem.parent</artifactId>
-        <version>7.0.3</version>
+        <version>7.0.4-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
