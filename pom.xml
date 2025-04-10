@@ -23,7 +23,7 @@
     <groupId>io.entgra.community.uem</groupId>
     <artifactId>io.entgra.community.uem.parent</artifactId>
     <packaging>pom</packaging>
-    <version>7.0.4</version>
+    <version>7.0.5-SNAPSHOT</version>
     <name>Entgra Community Product - Parent</name>
     <url>https://entgra.io</url>
     <description>Entgra Community Product</description>
@@ -95,7 +95,7 @@
         <url>https://github.com/entgra/product-uem-community.git</url>
         <developerConnection>scm:git:https://github.com/entgra/product-uem-community.git</developerConnection>
         <connection>scm:git:https://github.com/entgra/product-uem-community.git</connection>
-        <tag>v7.0.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
