@@ -374,6 +374,12 @@
                                 </featureArtifactDef>
                                 <!-- End of Notification Logger Feature-->
 
+                                <!-- Notification Management Feature-->
+                                <featureArtifactDef>
+                                    io.entgra.device.mgt.core:io.entgra.device.mgt.core.notification.mgt.server.feature:${io.entgra.device.mgt.core.version}
+                                </featureArtifactDef>
+                                <!-- End of Notification Management Feature-->
+
                                 <!-- APIM analytics extension feature-->
                                 <featureArtifactDef>
                                     io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.analytics.extension.feature:${io.entgra.device.mgt.core.version}
@@ -550,6 +556,12 @@
                                 <!--Notification Logger-->
                                 <feature>
                                     <id>io.entgra.device.mgt.core.notification.logger.feature.group</id>
+                                    <version>${io.entgra.device.mgt.core.version}</version>
+                                </feature>
+
+                                <!--Notification Management-->
+                                <feature>
+                                    <id>io.entgra.device.mgt.core.notification.mgt.server.feature.group</id>
                                     <version>${io.entgra.device.mgt.core.version}</version>
                                 </feature>
 
